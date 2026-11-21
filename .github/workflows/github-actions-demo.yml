@@ -1,17 +1,17 @@
-name: GitHub Actions Demo                       # name shown in the Actions sidebar
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀   # label for each run
-on: [push]                                      # EVENT: run whenever you commit
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
 jobs:
-  Explore-GitHub-Actions:                       # JOB name
-    runs-on: ubuntu-latest                      # RUNNER: a fresh Linux machine
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
     steps:
       - run: echo "The job was triggered by a ${{ github.event_name }} event."
       - run: echo "Running on a ${{ runner.os }} runner."
-      - run: echo "Branch: ${{ github.ref }}; repository: ${{ github.repository }}."
+      - run: echo "The branch is ${{ github.ref }} and the repository is ${{ github.repository }}."
       - name: Check out repository code
-        uses: actions/checkout@v6               # ready-made ACTION: copies your repo onto the runner
+        uses: actions/checkout@v6
       - run: echo "The repository has been cloned to the runner."
       - name: List files in the repository
-        run: |                                  # | lets you write a multi-line command
+        run: |
           ls ${{ github.workspace }}
-      - run: echo "Job status: ${{ job.status }}."
+      - run: echo "This job's status is ${{ job.status }}."
